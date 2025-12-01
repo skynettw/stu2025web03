@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ game }} 英雄榜</title>
+</head>
+<body>
+    <h1>{{ game }} 英雄榜</h1>
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>名次</th>
+            <th>姓名</th>
+            <th>成績</th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><a href="/">回首頁</a></p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>貪食蛇</title>
+</head>
+<body>
+    <h1>貪食蛇遊戲</h1>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <script src="/static/game2.js"></script>
+
+    <script>
+        function submitScore(score) {
+            let name = prompt("你進入前10名啦！請輸入姓名：");
+
+            fetch("/submit_score", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    game: "game2",
+                    score: score,
+                    name: name
+                })
+            })
+            .then(() => {
+                alert("成績已紀錄！");
+                window.location.href = "/ranking?game=game2";
+            });
+        }
+    </script>
+
+</body>
+</html>
